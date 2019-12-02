@@ -15,7 +15,7 @@ app.get("/Astronaut.usdz", function(req, res) {
   res.sendFile(path.join(`${__dirname}/Astronaut.usdz`));
 });
 
-app.listen(3000, async () => {
-  const url = await ngrok.connect(3000);
+app.listen(3100, async () => {
+  const url = await ngrok.connect(3100);
   console.log(url);
 });
