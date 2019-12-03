@@ -5,16 +5,12 @@ const ngrok = require("ngrok");
 
 const PORT = 4000;
 
-app.get("/", function(req, res) {
+app.get("/", (req, res) => {
   res.sendFile(path.join(`${__dirname}/index.html`));
 });
 
-app.get("/Astronaut.glb", function(req, res) {
-  res.sendFile(path.join(`${__dirname}/Astronaut.glb`));
-});
-
-app.get("/Astronaut.usdz", function(req, res) {
-  res.sendFile(path.join(`${__dirname}/Astronaut.usdz`));
+app.get("/assets/:fileName", (req, res) => {
+  res.sendFile(path.join(`${__dirname}/assets/${req.params.fileName}`));
 });
 
 app.listen(PORT, async () => {
