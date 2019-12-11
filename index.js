@@ -6,12 +6,10 @@ const config = require("./.ngrokconfig.json");
 
 const PORT = 4000;
 
+app.use("/static", express.static("public"));
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(`${__dirname}/index.html`));
-});
-
-app.get("/assets/:fileName", (req, res) => {
-  res.sendFile(path.join(`${__dirname}/assets/${req.params.fileName}`));
 });
 
 app.listen(PORT, async () => {
